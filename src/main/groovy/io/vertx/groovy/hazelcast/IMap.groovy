@@ -99,8 +99,8 @@ public class IMap<K,V> extends DistributedObject {
     } : null);
     return this;
   }
-  public IMap putAsync(K key, V value, long ttl, TimeUnit timeunit, Handler<AsyncResult<V>> handler) {
-    delegate.putAsync(key != null ? InternalHelper.unwrapObject(key) : null, value != null ? InternalHelper.unwrapObject(value) : null, ttl, timeunit, handler != null ? new Handler<AsyncResult<java.lang.Object>>() {
+  public IMap put(K key, V value, long ttl, TimeUnit timeunit, Handler<AsyncResult<V>> handler) {
+    delegate.put(key != null ? InternalHelper.unwrapObject(key) : null, value != null ? InternalHelper.unwrapObject(value) : null, ttl, timeunit, handler != null ? new Handler<AsyncResult<java.lang.Object>>() {
       public void handle(AsyncResult<java.lang.Object> ar) {
         if (ar.succeeded()) {
           handler.handle(io.vertx.core.Future.succeededFuture((Object) InternalHelper.wrapObject(ar.result())));
@@ -111,12 +111,12 @@ public class IMap<K,V> extends DistributedObject {
     } : null);
     return this;
   }
-  public IMap setAsync(K key, V value, Handler<AsyncResult<Void>> handler) {
-    delegate.setAsync(key != null ? InternalHelper.unwrapObject(key) : null, value != null ? InternalHelper.unwrapObject(value) : null, handler);
+  public IMap set(K key, V value, Handler<AsyncResult<Void>> handler) {
+    delegate.set(key != null ? InternalHelper.unwrapObject(key) : null, value != null ? InternalHelper.unwrapObject(value) : null, handler);
     return this;
   }
-  public IMap setAsync(K key, V value, long ttl, TimeUnit timeunit, Handler<AsyncResult<Void>> handler) {
-    delegate.setAsync(key != null ? InternalHelper.unwrapObject(key) : null, value != null ? InternalHelper.unwrapObject(value) : null, ttl, timeunit, handler);
+  public IMap set(K key, V value, long ttl, TimeUnit timeunit, Handler<AsyncResult<Void>> handler) {
+    delegate.set(key != null ? InternalHelper.unwrapObject(key) : null, value != null ? InternalHelper.unwrapObject(value) : null, ttl, timeunit, handler);
     return this;
   }
   /**

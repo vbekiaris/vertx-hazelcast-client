@@ -16,14 +16,12 @@
 
 package io.vertx.hazelcast.impl;
 
-import io.vertx.hazelcast.HazelcastClient;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
  *
  */
-public class HazelcastClientImplTest extends AbstractHazelcastClientBaseTest {
+public class HazelcastClientImplTest extends AbstractHazelcastClientTest {
 
     @Test
     public void test_getMap() {

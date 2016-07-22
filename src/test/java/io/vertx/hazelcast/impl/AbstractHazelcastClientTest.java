@@ -30,7 +30,7 @@ import java.util.UUID;
 /**
  *
  */
-public class AbstractHazelcastClientBaseTest extends VertxTestBase {
+public class AbstractHazelcastClientTest extends VertxTestBase {
 
     protected static HazelcastInstance hazelcastInstance;
     protected HazelcastClient hzClient;

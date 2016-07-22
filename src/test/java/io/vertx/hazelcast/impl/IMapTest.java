@@ -20,14 +20,12 @@ import com.hazelcast.map.impl.MapService;
 import io.vertx.hazelcast.IMap;
 import org.junit.Test;
 
-import java.util.concurrent.TimeUnit;
-
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 /**
  *
  */
-public class IMapTest extends AbstractHazelcastClientBaseTest {
+public class IMapTest extends AbstractHazelcastClientTest {
 
     @Test
     public void getMap() {

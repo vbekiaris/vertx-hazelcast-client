@@ -74,13 +74,13 @@ public interface IMap<K, V> extends DistributedObject {
     IMap put(K key, V value, Handler<AsyncResult<V>> handler);
 
     @Fluent
-    IMap putAsync(K key, V value, long ttl, TimeUnit timeunit, Handler<AsyncResult<V>> handler);
+    IMap put(K key, V value, long ttl, TimeUnit timeunit, Handler<AsyncResult<V>> handler);
 
     @Fluent
-    IMap setAsync(K key, V value, Handler<AsyncResult<Void>> handler);
+    IMap set(K key, V value, Handler<AsyncResult<Void>> handler);
 
     @Fluent
-    IMap setAsync(K key, V value, long ttl, TimeUnit timeunit, Handler<AsyncResult<Void>> handler);
+    IMap set(K key, V value, long ttl, TimeUnit timeunit, Handler<AsyncResult<Void>> handler);
 
 
     /**

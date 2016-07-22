@@ -50,19 +50,19 @@ public class IMapImpl<K, V> extends AbstractVertxDistributedObject
     }
 
     @Override
-    public IMap putAsync(K key, V value, long ttl, TimeUnit timeunit, Handler<AsyncResult<V>> handler) {
+    public IMap put(K key, V value, long ttl, TimeUnit timeunit, Handler<AsyncResult<V>> handler) {
         executeAsync(delegate.putAsync(key, value, ttl, timeunit), handler);
         return this;
     }
 
     @Override
-    public IMap setAsync(K key, V value, Handler<AsyncResult<Void>> handler) {
+    public IMap set(K key, V value, Handler<AsyncResult<Void>> handler) {
         executeAsync(delegate.setAsync(key, value), handler);
         return this;
     }
 
     @Override
-    public IMap setAsync(K key, V value, long ttl, TimeUnit timeunit, Handler<AsyncResult<Void>> handler) {
+    public IMap set(K key, V value, long ttl, TimeUnit timeunit, Handler<AsyncResult<Void>> handler) {
         executeAsync(delegate.setAsync(key, value, ttl, timeunit), handler);
         return this;
     }

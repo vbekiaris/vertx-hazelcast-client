@@ -73,33 +73,32 @@ var IMap = function(j_val) {
   };
 
   /**
-   
-   <p/>
-   <p><b>Warning:</b></p>
-   <p>
-   This method returns a clone of the previous value, not the original (identically equal) value
-   previously put into the map.
-   </p>
-   <p/>
-   <p><b>Warning-2:</b></p>
-   This method uses <tt>hashCode</tt> and <tt>equals</tt> of the binary form of
-   the <tt>key</tt>, not the actual implementations of <tt>hashCode</tt> and <tt>equals</tt>
-   defined in the <tt>key</tt>'s class.
 
    @public
    @param key {Object} 
    @param value {Object} 
+   @param ttl {number} 
+   @param timeunit {Object} 
    @param handler {function} 
    @return {IMap}
    */
-  this.put = function(key, value, handler) {
+  this.put = function() {
     var __args = arguments;
     if (__args.length === 3 && typeof __args[0] !== 'function' && typeof __args[1] !== 'function' && typeof __args[2] === 'function') {
-      j_iMap["put(java.lang.Object,java.lang.Object,io.vertx.core.Handler)"](utils.convParamTypeUnknown(key), utils.convParamTypeUnknown(value), function(ar) {
+      j_iMap["put(java.lang.Object,java.lang.Object,io.vertx.core.Handler)"](utils.convParamTypeUnknown(__args[0]), utils.convParamTypeUnknown(__args[1]), function(ar) {
       if (ar.succeeded()) {
-        handler(utils.convReturnTypeUnknown(ar.result()), null);
+        __args[2](utils.convReturnTypeUnknown(ar.result()), null);
       } else {
-        handler(null, ar.cause());
+        __args[2](null, ar.cause());
+      }
+    });
+      return that;
+    }  else if (__args.length === 5 && typeof __args[0] !== 'function' && typeof __args[1] !== 'function' && typeof __args[2] ==='number' && typeof __args[3] === 'string' && typeof __args[4] === 'function') {
+      j_iMap["put(java.lang.Object,java.lang.Object,long,java.util.concurrent.TimeUnit,io.vertx.core.Handler)"](utils.convParamTypeUnknown(__args[0]), utils.convParamTypeUnknown(__args[1]), __args[2], java.util.concurrent.TimeUnit.valueOf(__args[3]), function(ar) {
+      if (ar.succeeded()) {
+        __args[4](utils.convReturnTypeUnknown(ar.result()), null);
+      } else {
+        __args[4](null, ar.cause());
       }
     });
       return that;
@@ -116,34 +115,10 @@ var IMap = function(j_val) {
    @param handler {function} 
    @return {IMap}
    */
-  this.putAsync = function(key, value, ttl, timeunit, handler) {
-    var __args = arguments;
-    if (__args.length === 5 && typeof __args[0] !== 'function' && typeof __args[1] !== 'function' && typeof __args[2] ==='number' && typeof __args[3] === 'string' && typeof __args[4] === 'function') {
-      j_iMap["putAsync(java.lang.Object,java.lang.Object,long,java.util.concurrent.TimeUnit,io.vertx.core.Handler)"](utils.convParamTypeUnknown(key), utils.convParamTypeUnknown(value), ttl, java.util.concurrent.TimeUnit.valueOf(timeunit), function(ar) {
-      if (ar.succeeded()) {
-        handler(utils.convReturnTypeUnknown(ar.result()), null);
-      } else {
-        handler(null, ar.cause());
-      }
-    });
-      return that;
-    } else throw new TypeError('function invoked with invalid arguments');
-  };
-
-  /**
-
-   @public
-   @param key {Object} 
-   @param value {Object} 
-   @param ttl {number} 
-   @param timeunit {Object} 
-   @param handler {function} 
-   @return {IMap}
-   */
-  this.setAsync = function() {
+  this.set = function() {
     var __args = arguments;
     if (__args.length === 3 && typeof __args[0] !== 'function' && typeof __args[1] !== 'function' && typeof __args[2] === 'function') {
-      j_iMap["setAsync(java.lang.Object,java.lang.Object,io.vertx.core.Handler)"](utils.convParamTypeUnknown(__args[0]), utils.convParamTypeUnknown(__args[1]), function(ar) {
+      j_iMap["set(java.lang.Object,java.lang.Object,io.vertx.core.Handler)"](utils.convParamTypeUnknown(__args[0]), utils.convParamTypeUnknown(__args[1]), function(ar) {
       if (ar.succeeded()) {
         __args[2](null, null);
       } else {
@@ -152,7 +127,7 @@ var IMap = function(j_val) {
     });
       return that;
     }  else if (__args.length === 5 && typeof __args[0] !== 'function' && typeof __args[1] !== 'function' && typeof __args[2] ==='number' && typeof __args[3] === 'string' && typeof __args[4] === 'function') {
-      j_iMap["setAsync(java.lang.Object,java.lang.Object,long,java.util.concurrent.TimeUnit,io.vertx.core.Handler)"](utils.convParamTypeUnknown(__args[0]), utils.convParamTypeUnknown(__args[1]), __args[2], java.util.concurrent.TimeUnit.valueOf(__args[3]), function(ar) {
+      j_iMap["set(java.lang.Object,java.lang.Object,long,java.util.concurrent.TimeUnit,io.vertx.core.Handler)"](utils.convParamTypeUnknown(__args[0]), utils.convParamTypeUnknown(__args[1]), __args[2], java.util.concurrent.TimeUnit.valueOf(__args[3]), function(ar) {
       if (ar.succeeded()) {
         __args[4](null, null);
       } else {

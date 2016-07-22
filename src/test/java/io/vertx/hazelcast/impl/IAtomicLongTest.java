@@ -17,7 +17,6 @@
 package io.vertx.hazelcast.impl;
 
 import io.vertx.hazelcast.IAtomicLong;
-import io.vertx.hazelcast.IMap;
 import org.junit.Test;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
@@ -26,7 +25,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
  *
  */
 public class IAtomicLongTest
-        extends AbstractHazelcastClientBaseTest {
+        extends AbstractHazelcastClientTest {
 
     @Test
     public void getAtomicLong() {
@@ -97,6 +96,139 @@ public class IAtomicLongTest
                 }
                 else {
                     fail(incAndGetResult.cause());
+                }
+            });
+        });
+        await(15, SECONDS);
+    }
+
+    @Test
+    public void testDecrementAndGet() {
+        hzClient.getAtomicLong("testDecrementAndGet", atomicLongResult -> {
+            final IAtomicLong atomicLong = atomicLongResult.result();
+            atomicLong.decrementAndGet(decAndGetResult -> {
+                if (decAndGetResult.succeeded()) {
+                    assertEquals(-1, (long)decAndGetResult.result());
+                    testComplete();
+                }
+                else {
+                    fail(decAndGetResult.cause());
+                }
+            });
+        });
+        await(15, SECONDS);
+    }
+
+    @Test
+    public void testGet() {
+        hzClient.getAtomicLong("testGet", atomicLongResult -> {
+            final IAtomicLong atomicLong = atomicLongResult.result();
+            atomicLong.get(getResult -> {
+                if (getResult.succeeded()) {
+                    assertEquals(0, (long)getResult.result());
+                    testComplete();
+                }
+                else {
+                    fail(getResult.cause());
+                }
+            });
+        });
+        await(15, SECONDS);
+    }
+
+    @Test
+    public void testGetAndAdd() {
+        hzClient.getAtomicLong("testGetAndAdd", atomicLongResult -> {
+            final IAtomicLong atomicLong = atomicLongResult.result();
+            atomicLong.getAndAdd(13, getAndAddResult -> {
+                if (getAndAddResult.succeeded()) {
+                    assertEquals(0, (long)getAndAddResult.result());
+                    atomicLong.get(getResult -> {
+                        if (getResult.succeeded()) {
+                            assertEquals(13, (long) getResult.result());
+                            testComplete();
+                        }
+                        else {
+                            fail(getResult.cause());
+                        }
+                    });
+                }
+                else {
+                    fail(getAndAddResult.cause());
+                }
+            });
+        });
+        await(15, SECONDS);
+    }
+
+    @Test
+    public void testGetAndSet() {
+        hzClient.getAtomicLong("testGetAndSet", atomicLongResult -> {
+            final IAtomicLong atomicLong = atomicLongResult.result();
+            atomicLong.getAndSet(27, getAndSetResult -> {
+                if (getAndSetResult.succeeded()) {
+                    assertEquals(0, (long)getAndSetResult.result());
+                    atomicLong.get(getResult -> {
+                        if (getResult.succeeded()) {
+                            assertEquals(27, (long) getResult.result());
+                            testComplete();
+                        }
+                        else {
+                            fail(getResult.cause());
+                        }
+                    });
+                }
+                else {
+                    fail(getAndSetResult.cause());
+                }
+            });
+        });
+        await(15, SECONDS);
+    }
+
+    @Test
+    public void testGetAndIncrement() {
+        hzClient.getAtomicLong("testGetAndIncrement", atomicLongResult -> {
+            final IAtomicLong atomicLong = atomicLongResult.result();
+            atomicLong.getAndIncrement(getAndIncResult -> {
+                if (getAndIncResult.succeeded()) {
+                    assertEquals(0, (long)getAndIncResult.result());
+                    atomicLong.get(getResult -> {
+                        if (getResult.succeeded()) {
+                            assertEquals(1, (long) getResult.result());
+                            testComplete();
+                        }
+                        else {
+                            fail(getResult.cause());
+                        }
+                    });
+                }
+                else {
+                    fail(getAndIncResult.cause());
+                }
+            });
+        });
+        await(15, SECONDS);
+    }
+
+    @Test
+    public void testSet() {
+        hzClient.getAtomicLong("testSet", atomicLongResult -> {
+            final IAtomicLong atomicLong = atomicLongResult.result();
+            atomicLong.set(33, setResult -> {
+                if (setResult.succeeded()) {
+                    atomicLong.get(getResult -> {
+                        if (getResult.succeeded()) {
+                            assertEquals(33, (long) getResult.result());
+                            testComplete();
+                        }
+                        else {
+                            fail(getResult.cause());
+                        }
+                    });
+                }
+                else {
+                    fail(setResult.cause());
                 }
             });
         });
