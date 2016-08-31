@@ -78,15 +78,7 @@ public class DistributedObject {
    * @param handler 
    */
   public void destroy(Handler<AsyncResult<Void>> handler) { 
-    delegate.destroy(new Handler<AsyncResult<java.lang.Void>>() {
-      public void handle(AsyncResult<java.lang.Void> ar) {
-        if (ar.succeeded()) {
-          handler.handle(io.vertx.core.Future.succeededFuture(ar.result()));
-        } else {
-          handler.handle(io.vertx.core.Future.failedFuture(ar.cause()));
-        }
-      }
-    });
+    delegate.destroy(handler);
   }
 
   /**

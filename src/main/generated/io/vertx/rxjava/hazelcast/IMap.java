@@ -66,15 +66,7 @@ public class IMap<K,V> extends DistributedObject {
    * @return 
    */
   public IMap get(K key, Handler<AsyncResult<V>> handler) { 
-    delegate.get(key, new Handler<AsyncResult<V>>() {
-      public void handle(AsyncResult<V> ar) {
-        if (ar.succeeded()) {
-          handler.handle(io.vertx.core.Future.succeededFuture((V) ar.result()));
-        } else {
-          handler.handle(io.vertx.core.Future.failedFuture(ar.cause()));
-        }
-      }
-    });
+    delegate.get(key, handler);
     return this;
   }
 
@@ -125,15 +117,7 @@ public class IMap<K,V> extends DistributedObject {
    * @return 
    */
   public IMap put(K key, V value, Handler<AsyncResult<V>> handler) { 
-    delegate.put(key, value, new Handler<AsyncResult<V>>() {
-      public void handle(AsyncResult<V> ar) {
-        if (ar.succeeded()) {
-          handler.handle(io.vertx.core.Future.succeededFuture((V) ar.result()));
-        } else {
-          handler.handle(io.vertx.core.Future.failedFuture(ar.cause()));
-        }
-      }
-    });
+    delegate.put(key, value, handler);
     return this;
   }
 
@@ -161,15 +145,7 @@ public class IMap<K,V> extends DistributedObject {
   }
 
   public IMap put(K key, V value, long ttl, TimeUnit timeunit, Handler<AsyncResult<V>> handler) { 
-    delegate.put(key, value, ttl, timeunit, new Handler<AsyncResult<V>>() {
-      public void handle(AsyncResult<V> ar) {
-        if (ar.succeeded()) {
-          handler.handle(io.vertx.core.Future.succeededFuture((V) ar.result()));
-        } else {
-          handler.handle(io.vertx.core.Future.failedFuture(ar.cause()));
-        }
-      }
-    });
+    delegate.put(key, value, ttl, timeunit, handler);
     return this;
   }
 
@@ -180,15 +156,7 @@ public class IMap<K,V> extends DistributedObject {
   }
 
   public IMap set(K key, V value, Handler<AsyncResult<Void>> handler) { 
-    delegate.set(key, value, new Handler<AsyncResult<java.lang.Void>>() {
-      public void handle(AsyncResult<java.lang.Void> ar) {
-        if (ar.succeeded()) {
-          handler.handle(io.vertx.core.Future.succeededFuture(ar.result()));
-        } else {
-          handler.handle(io.vertx.core.Future.failedFuture(ar.cause()));
-        }
-      }
-    });
+    delegate.set(key, value, handler);
     return this;
   }
 
@@ -199,15 +167,7 @@ public class IMap<K,V> extends DistributedObject {
   }
 
   public IMap set(K key, V value, long ttl, TimeUnit timeunit, Handler<AsyncResult<Void>> handler) { 
-    delegate.set(key, value, ttl, timeunit, new Handler<AsyncResult<java.lang.Void>>() {
-      public void handle(AsyncResult<java.lang.Void> ar) {
-        if (ar.succeeded()) {
-          handler.handle(io.vertx.core.Future.succeededFuture(ar.result()));
-        } else {
-          handler.handle(io.vertx.core.Future.failedFuture(ar.cause()));
-        }
-      }
-    });
+    delegate.set(key, value, ttl, timeunit, handler);
     return this;
   }
 
@@ -237,15 +197,7 @@ public class IMap<K,V> extends DistributedObject {
    * @return 
    */
   public IMap remove(K key, Handler<AsyncResult<V>> handler) { 
-    delegate.remove(key, new Handler<AsyncResult<V>>() {
-      public void handle(AsyncResult<V> ar) {
-        if (ar.succeeded()) {
-          handler.handle(io.vertx.core.Future.succeededFuture((V) ar.result()));
-        } else {
-          handler.handle(io.vertx.core.Future.failedFuture(ar.cause()));
-        }
-      }
-    });
+    delegate.remove(key, handler);
     return this;
   }
 

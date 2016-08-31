@@ -45,7 +45,7 @@ var IAtomicLong = function(j_val) {
     if (__args.length === 2 && typeof __args[0] ==='number' && typeof __args[1] === 'function') {
       j_iAtomicLong["addAndGet(long,io.vertx.core.Handler)"](delta, function(ar) {
       if (ar.succeeded()) {
-        handler(ar.result(), null);
+        handler(utils.convReturnLong(ar.result()), null);
       } else {
         handler(null, ar.cause());
       }
@@ -87,7 +87,7 @@ var IAtomicLong = function(j_val) {
     if (__args.length === 1 && typeof __args[0] === 'function') {
       j_iAtomicLong["decrementAndGet(io.vertx.core.Handler)"](function(ar) {
       if (ar.succeeded()) {
-        handler(ar.result(), null);
+        handler(utils.convReturnLong(ar.result()), null);
       } else {
         handler(null, ar.cause());
       }
@@ -107,7 +107,7 @@ var IAtomicLong = function(j_val) {
     if (__args.length === 1 && typeof __args[0] === 'function') {
       j_iAtomicLong["get(io.vertx.core.Handler)"](function(ar) {
       if (ar.succeeded()) {
-        handler(ar.result(), null);
+        handler(utils.convReturnLong(ar.result()), null);
       } else {
         handler(null, ar.cause());
       }
@@ -128,7 +128,7 @@ var IAtomicLong = function(j_val) {
     if (__args.length === 2 && typeof __args[0] ==='number' && typeof __args[1] === 'function') {
       j_iAtomicLong["getAndAdd(long,io.vertx.core.Handler)"](delta, function(ar) {
       if (ar.succeeded()) {
-        handler(ar.result(), null);
+        handler(utils.convReturnLong(ar.result()), null);
       } else {
         handler(null, ar.cause());
       }
@@ -149,7 +149,7 @@ var IAtomicLong = function(j_val) {
     if (__args.length === 2 && typeof __args[0] ==='number' && typeof __args[1] === 'function') {
       j_iAtomicLong["getAndSet(long,io.vertx.core.Handler)"](newValue, function(ar) {
       if (ar.succeeded()) {
-        handler(ar.result(), null);
+        handler(utils.convReturnLong(ar.result()), null);
       } else {
         handler(null, ar.cause());
       }
@@ -169,7 +169,7 @@ var IAtomicLong = function(j_val) {
     if (__args.length === 1 && typeof __args[0] === 'function') {
       j_iAtomicLong["incrementAndGet(io.vertx.core.Handler)"](function(ar) {
       if (ar.succeeded()) {
-        handler(ar.result(), null);
+        handler(utils.convReturnLong(ar.result()), null);
       } else {
         handler(null, ar.cause());
       }
@@ -189,7 +189,7 @@ var IAtomicLong = function(j_val) {
     if (__args.length === 1 && typeof __args[0] === 'function') {
       j_iAtomicLong["getAndIncrement(io.vertx.core.Handler)"](function(ar) {
       if (ar.succeeded()) {
-        handler(ar.result(), null);
+        handler(utils.convReturnLong(ar.result()), null);
       } else {
         handler(null, ar.cause());
       }

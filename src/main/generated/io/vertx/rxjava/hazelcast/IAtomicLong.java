@@ -42,15 +42,7 @@ public class IAtomicLong extends DistributedObject {
   }
 
   public IAtomicLong addAndGet(long delta, Handler<AsyncResult<Long>> handler) { 
-    delegate.addAndGet(delta, new Handler<AsyncResult<java.lang.Long>>() {
-      public void handle(AsyncResult<java.lang.Long> ar) {
-        if (ar.succeeded()) {
-          handler.handle(io.vertx.core.Future.succeededFuture(ar.result()));
-        } else {
-          handler.handle(io.vertx.core.Future.failedFuture(ar.cause()));
-        }
-      }
-    });
+    delegate.addAndGet(delta, handler);
     return this;
   }
 
@@ -61,15 +53,7 @@ public class IAtomicLong extends DistributedObject {
   }
 
   public IAtomicLong compareAndSet(long expect, long update, Handler<AsyncResult<Boolean>> handler) { 
-    delegate.compareAndSet(expect, update, new Handler<AsyncResult<java.lang.Boolean>>() {
-      public void handle(AsyncResult<java.lang.Boolean> ar) {
-        if (ar.succeeded()) {
-          handler.handle(io.vertx.core.Future.succeededFuture(ar.result()));
-        } else {
-          handler.handle(io.vertx.core.Future.failedFuture(ar.cause()));
-        }
-      }
-    });
+    delegate.compareAndSet(expect, update, handler);
     return this;
   }
 
@@ -80,15 +64,7 @@ public class IAtomicLong extends DistributedObject {
   }
 
   public IAtomicLong decrementAndGet(Handler<AsyncResult<Long>> handler) { 
-    delegate.decrementAndGet(new Handler<AsyncResult<java.lang.Long>>() {
-      public void handle(AsyncResult<java.lang.Long> ar) {
-        if (ar.succeeded()) {
-          handler.handle(io.vertx.core.Future.succeededFuture(ar.result()));
-        } else {
-          handler.handle(io.vertx.core.Future.failedFuture(ar.cause()));
-        }
-      }
-    });
+    delegate.decrementAndGet(handler);
     return this;
   }
 
@@ -99,15 +75,7 @@ public class IAtomicLong extends DistributedObject {
   }
 
   public IAtomicLong get(Handler<AsyncResult<Long>> handler) { 
-    delegate.get(new Handler<AsyncResult<java.lang.Long>>() {
-      public void handle(AsyncResult<java.lang.Long> ar) {
-        if (ar.succeeded()) {
-          handler.handle(io.vertx.core.Future.succeededFuture(ar.result()));
-        } else {
-          handler.handle(io.vertx.core.Future.failedFuture(ar.cause()));
-        }
-      }
-    });
+    delegate.get(handler);
     return this;
   }
 
@@ -118,15 +86,7 @@ public class IAtomicLong extends DistributedObject {
   }
 
   public IAtomicLong getAndAdd(long delta, Handler<AsyncResult<Long>> handler) { 
-    delegate.getAndAdd(delta, new Handler<AsyncResult<java.lang.Long>>() {
-      public void handle(AsyncResult<java.lang.Long> ar) {
-        if (ar.succeeded()) {
-          handler.handle(io.vertx.core.Future.succeededFuture(ar.result()));
-        } else {
-          handler.handle(io.vertx.core.Future.failedFuture(ar.cause()));
-        }
-      }
-    });
+    delegate.getAndAdd(delta, handler);
     return this;
   }
 
@@ -137,15 +97,7 @@ public class IAtomicLong extends DistributedObject {
   }
 
   public IAtomicLong getAndSet(long newValue, Handler<AsyncResult<Long>> handler) { 
-    delegate.getAndSet(newValue, new Handler<AsyncResult<java.lang.Long>>() {
-      public void handle(AsyncResult<java.lang.Long> ar) {
-        if (ar.succeeded()) {
-          handler.handle(io.vertx.core.Future.succeededFuture(ar.result()));
-        } else {
-          handler.handle(io.vertx.core.Future.failedFuture(ar.cause()));
-        }
-      }
-    });
+    delegate.getAndSet(newValue, handler);
     return this;
   }
 
@@ -156,15 +108,7 @@ public class IAtomicLong extends DistributedObject {
   }
 
   public IAtomicLong incrementAndGet(Handler<AsyncResult<Long>> handler) { 
-    delegate.incrementAndGet(new Handler<AsyncResult<java.lang.Long>>() {
-      public void handle(AsyncResult<java.lang.Long> ar) {
-        if (ar.succeeded()) {
-          handler.handle(io.vertx.core.Future.succeededFuture(ar.result()));
-        } else {
-          handler.handle(io.vertx.core.Future.failedFuture(ar.cause()));
-        }
-      }
-    });
+    delegate.incrementAndGet(handler);
     return this;
   }
 
@@ -175,15 +119,7 @@ public class IAtomicLong extends DistributedObject {
   }
 
   public IAtomicLong getAndIncrement(Handler<AsyncResult<Long>> handler) { 
-    delegate.getAndIncrement(new Handler<AsyncResult<java.lang.Long>>() {
-      public void handle(AsyncResult<java.lang.Long> ar) {
-        if (ar.succeeded()) {
-          handler.handle(io.vertx.core.Future.succeededFuture(ar.result()));
-        } else {
-          handler.handle(io.vertx.core.Future.failedFuture(ar.cause()));
-        }
-      }
-    });
+    delegate.getAndIncrement(handler);
     return this;
   }
 
@@ -194,15 +130,7 @@ public class IAtomicLong extends DistributedObject {
   }
 
   public IAtomicLong set(long newValue, Handler<AsyncResult<Void>> handler) { 
-    delegate.set(newValue, new Handler<AsyncResult<java.lang.Void>>() {
-      public void handle(AsyncResult<java.lang.Void> ar) {
-        if (ar.succeeded()) {
-          handler.handle(io.vertx.core.Future.succeededFuture(ar.result()));
-        } else {
-          handler.handle(io.vertx.core.Future.failedFuture(ar.cause()));
-        }
-      }
-    });
+    delegate.set(newValue, handler);
     return this;
   }
 

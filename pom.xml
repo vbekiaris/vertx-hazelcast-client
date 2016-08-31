@@ -10,14 +10,14 @@
         <version>20</version>
     </parent>
 
-    <groupId>com.hazelcast</groupId>
     <artifactId>vertx-hazelcast-client</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1-SNAPSHOT</version>
 
     <name>Vert.x Hazelcast Client</name>
 
     <properties>
-        <stack.version>3.3.0-SNAPSHOT</stack.version>
+        <stack.version>3.4.0-SNAPSHOT</stack.version>
+        <hazelcast.version>3.7</hazelcast.version>
     </properties>
 
     <dependencyManagement>
@@ -77,12 +77,12 @@
         <dependency>
             <groupId>com.hazelcast</groupId>
             <artifactId>hazelcast</artifactId>
-            <version>3.7-SNAPSHOT</version>
+            <version>${hazelcast.version}</version>
         </dependency>
         <dependency>
             <groupId>com.hazelcast</groupId>
             <artifactId>hazelcast-client</artifactId>
-            <version>3.7-SNAPSHOT</version>
+            <version>${hazelcast.version}</version>
         </dependency>
         <dependency>
             <groupId>io.vertx</groupId>
